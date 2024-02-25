@@ -18,12 +18,12 @@ Kualitas air dipengaruhi oleh beberapa faktor, seperti banyaknya bakteri yang te
 ## Business Understanding
 ### Problem Statement
 Berdasarkan latar belakang di atas, permasalahan yang didapatkan sebagai berikut:
-+ Bagaimana pengaruh fitur dalam menentukan kelayakan konsumsi air?
++ Seberapa pengaruh fitur dalam menentukan kelayakan konsumsi air?
 + Bagaimana cara memproses data agar dapat dilatih dengan baik oleh model?
 + Algoritma apa yang memiliki kinerja paling baik?
 
 ### Goals
-+ Mengetahui pengaruh fitur dalam menentukan kelayakan konsusi air
++ Mengetahui besarnya pengaruh fitur dalam menentukan kelayakan konsusi air
 + Mengetahui cara pemrosesan data agar dapat dilatih dengan baik oleh model
 + Mengetahui model yang memiliki kinerja terbaik
 
@@ -42,16 +42,27 @@ Informasi dataset:
 + Terdapat _missing value_ pada dataset
 
 ### Variable pada dataset
-+ pH value: Nilai pH air (tingkat keasaman suatu cairan)
-+ Hardness: Kandungan mineral-mineral dalam air yaitu, ion kalsium (Ca) dan magnesium (Mg) dalam bentuk garam karbonat.
-+ Solids: Total padatan terlarut dalam ppm(part per million)
-+ Chloramines: Jumlah Kloramin dalam ppm(part per million)
-+ Sulfate: Jumlah Sulfat yang dilarutkan dalam mg/L
-+ Conductivity: Konduktivitas listrik air dalam μS/cm
-+ Organic_carbon: Jumlah karbon organik dalam ppm(part per million)
-+ Trihalomethanes: Jumlah Trihalometana dalam μg/L.
-+ Turbidity: Ukuran sifat pemancar cahaya air di NTU(tingkat kekeruhan air)
-+ Potability: Menunjukkan apakah air aman untuk dikonsumsi manusia. Dapat diminum 1 dan Tidak dapat diminum 0
++ aluminium: Kadar aluminium dalam air per liter.
++ ammonia: Tingkat amonia dalam air per liter.
++ arsenic: Kadar arsenik dalam air per liter.
++ barium: Kadar barium dalam air per liter.
++ cadmium: Kadar kadmium dalam air per liter.
++ chloramine: Kadar chloramine dalam air per liter.
++ chromium: Level od chromium in water per liter.
++ copper: Level od copper in water per liter.
++ flouride: Tingkat fluorida dalam air per liter.
++ bacteria: Tingkat bakteri dalam air per liter.
++ viruses: Tingkat virus dalam air per liter.
++ lead: Tingkat timbal dalam air dalam ukuran ppm.
++ nitrates: Tingkat nitrat dalam air per liter.
++ nitrites: Tingkat nitrit dalam air per liter.
++ mercury: Tingkat merkuri dalam air dalam ukuran ppm.
++ perchlorate: Tingkat perklorat dalam air per liter.
++ radium: Tingkat radium dalam air per liter.
++ selenium: Tingkat selenium dalam air per liter.
++ silver: Tingkat silver dalam air per liter.
++ uranium: Tingkat uranium dalam air per liter.
++ is_safe: Menunjukan apakah air layak dikonsumsi (1-layak, 0-tidak layak)
 
 #### Missing value
 Kita akan menggunakan fungsi isnull().sum() untuk mengetahui jumlah missing value dan fitur yang memiliki missing value
