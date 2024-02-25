@@ -17,7 +17,7 @@ Kualitas air dipengaruhi oleh beberapa faktor, seperti banyaknya bakteri yang te
 
 ## Business Understanding
 ### Problem Statement
-Berdasarkan latar belakang di atas, kita dapat menentukan pernyataan masalah sebagai berikut:
+Berdasarkan latar belakang di atas, permasalahan yang didapatkan sebagai berikut:
 + Bagaimana pengaruh fitur dalam menentukan kelayakan konsumsi air?
 + Bagaimana cara memproses data agar dapat dilatih dengan baik oleh model?
 + Algoritma apa yang memiliki kinerja paling baik?
@@ -28,18 +28,18 @@ Berdasarkan latar belakang di atas, kita dapat menentukan pernyataan masalah seb
 + Mengetahui model yang memiliki kinerja terbaik
 
 ### Solution Steatment
-+ Menggunakan hubungan korelasi antar fitur untuk mengetahui pengaruh setiap fitur dalam menentukan kelayakan konsumsi air. Menggunakan hasil evaluasi model Machine Learning dalam menentukan pengaruh fitur dalam menentukan kelayakan konsumsi air.
-+ Menerapkan beberapa metode dalam melakukan pemrosesan data seperti mengganti missing value dengan nilai rata-rata, membagi dataset menjadi data latih dan data pengujian, serta menerapkan upsampling ketika data mengalami ketidakseimbangan
-+ Menggunakan lebih dari 1 model yang dapat menyelesaikan masalah klasifikasi. Algoritma yang dipakai adalah K-Nearest Neighbour, Random Forest, dan Suport Vector Classification
++ Menggunakan hubungan korelasi antar fitur untuk mengetahui pengaruh setiap fitur dalam menentukan kelayakan konsumsi air. 
++ Menerapkan beberapa metode dalam melakukan pemrosesan data seperti menghapus _missing value_ , membagi dataset menjadi data latih dan data pengujian, serta menerapkan _downsampling_ ketika data mengalami ketidakseimbangan
++ Menggunakan lebih dari 1 model yang dapat menyelesaikan masalah klasifikasi. Algoritma yang dipakai adalah _K-Nearest Neighbour_, _Random Forest_, dan _Suport Vector Classification_
 
 # Data Understanding
-Dataset yang digunakan dalam proyek ini merupakan data yang berisikan beberapa parameter yang digunakan dalam menentukan kualitas air. Dataset ini dapat diunduh di [Kaggle: Water Quality](https://www.kaggle.com/datasets/adityakadiwal/water-potability/data)
+Dataset yang digunakan dalam proyek ini merupakan data yang berisikan beberapa parameter yang digunakan dalam menentukan kualitas air. Dataset ini dapat diunduh di [Kaggle: Water Quality]([https://www.kaggle.com/datasets/adityakadiwal/water-potability/data](https://www.kaggle.com/datasets/mssmartypants/water-quality))
 
 Informasi dataset:
-+ Dataset dalam format CSV (Comma-Seperated Values)
-+ Dataset ini memiliki 10 fitur dengan 3276 sample
-+ Data set memiliki 9 fitur bertipe float64 dan 1 fitur bertipe int64
-+ Terdapat missing value pada dataset
++ Dataset dalam format CSV 
++ Dataset ini memiliki 21 fitur dengan 7999 sample
++ Data set memiliki 19 fitur bertipe numerik dan 2 fitur bertipe obyek
++ Terdapat _missing value_ pada dataset
 
 ### Variable pada dataset
 + pH value: Nilai pH air (tingkat keasaman suatu cairan)
