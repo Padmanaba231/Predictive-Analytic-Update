@@ -4,13 +4,13 @@
 ### Latar belakang
 <br>
 
-![air](https://github.com/Padmanaba231/Predictive-Analytic-Update/assets/157343566/6aa8687a-b7fc-4d8d-a98b-1e070d2e52a5)
-
-
-<br>
+![air](https://github.com/Padmanaba231/Predictive-Analytic-Update/assets/157343566/6aa8687a-b7fc-4d8d-a98b-1e070d2e52a5) <br>
 gambar 1
 <br>
-Pemantauan kualitas air sangat penting untuk melindungi kesehatan manusia dan lingkungan serta mengendalikan kualitas air .Kehidupan kita tidak pernah lepas akan kebutuhan terhadap air. Terutama air bersih dan air yang layak untuk dikonsumsi. Oleh karena itu, Penyediaan air dan sanitasi yang baik, serta pengelolaan sumber daya air yang baik merupakan hal yang wajib dalam menjaga kualitas air agar bisa digunakan dengan aman oleh masyarakat. Jika tidak diperhatikan dengan benar dan teliti, air tersebut dapat terkontaminasi dan tentunya menyebabkan air tersebut tidak layak dikonsumsi. Air yang terkontaminasi dan sanitasi yang tidak memadai memfasilitasi penularan penyakit seperti kolera, diare, disentri, hepatitis A, tifoid, dan polio. Mereka yang tidak memiliki akses ke air bersih dan sanitasi menghadapi risiko kesehatan yang dapat dicegah. Sehingga pemantauan terhadap kualitas air sangatlah penting untuk terus dipantau. Kita dapat memanfaatkan pendekatan Machine Learning dalam membantu mengklasifikasikan antara air yang layak dikonsumsi dan yang tidak layak dikonsumsi.
+<br>
+Pemantauan kualitas air sangat penting untuk melindungi kesehatan manusia dan lingkungan serta mengendalikan kualitas air [[1](https://www.sciencedirect.com/science/article/pii/S2214714422003646)] .Kehidupan kita tidak pernah lepas akan kebutuhan terhadap air. Terutama air bersih dan air yang layak untuk dikonsumsi. Oleh karena itu, Penyediaan air dan sanitasi yang baik, serta pengelolaan sumber daya air yang baik merupakan hal yang wajib dalam menjaga kualitas air agar bisa digunakan dengan aman oleh masyarakat. Jika tidak diperhatikan dengan benar dan teliti, air tersebut dapat terkontaminasi dan tentunya menyebabkan air tersebut tidak layak dikonsumsi. Air yang terkontaminasi dan sanitasi yang tidak memadai memfasilitasi penularan penyakit seperti kolera, diare, disentri, hepatitis A, tifoid, dan polio. Mereka yang tidak memiliki akses ke air bersih dan sanitasi menghadapi risiko kesehatan yang dapat dicegah. Sehingga pemantauan terhadap kualitas air sangatlah penting untuk terus dipantau. 
+<br>
+Kualitas air dipengaruhi oleh beberapa faktor, seperti banyaknya bakteri yang terkandung, tingkat kejernihan air, kandungan amonia yang terkandung, dan masih banyak faktor lainnya. Oleh karena faktor-faktor tersebut, yang juga tersedia pada dataset, maka dapat diprediksi layak atau tidaknya air untuk dikonsumsi serta melihat kisaran korelasi dari setiap faktor-faktor tersebut. Kecerdasan Buatan menawarkan peluang besar untuk membantu meningkatkan klasifikasi dan prediksi kualitas air.[[1](https://www.sciencedirect.com/science/article/pii/S2214714422003646) Banyak cara algoritma yang dapat digunakan dalam kasus ini. Salah satunya adalah algoritma klasifikasi. Pada proyek ini diharapkan dapat membantu dalam memprediksi layak dan tidak layaknya suatu air untuk dikonsumsi dengan cara menggunakan algoritma klasifikasi lalu memasukan faktor-faktor yang mempengaruhi kualitas air.
 <br>
 Referensi: [Water quality classification using machine learning algorithms](https://www.sciencedirect.com/science/article/pii/S2214714422003646)
 
