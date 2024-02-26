@@ -30,7 +30,7 @@ Berdasarkan latar belakang di atas, permasalahan yang didapatkan sebagai berikut
 ### Solution Steatment
 + Menggunakan hubungan korelasi antar fitur untuk mengetahui pengaruh setiap fitur dalam menentukan kelayakan konsumsi air. 
 + Menerapkan beberapa metode dalam melakukan pemrosesan data seperti menghapus _missing value_ , membagi _dataset_ menjadi data latih dan data pengujian, serta menerapkan _downsampling_ ketika data mengalami ketidakseimbangan
-+ Menggunakan lebih dari 1 model yang dapat menyelesaikan masalah klasifikasi. Algoritma yang dipakai adalah _K-Nearest Neighbour_, _Random Forest_, dan _Suport Vector Classification_
++ Menggunakan lebih dari 1 model yang dapat menyelesaikan masalah klasifikasi. Algoritma yang dipakai adalah _K-Nearest Neighbour_, __Random Forest__, dan _Suport Vector Classification_
 
 # Data Understanding
 _dataset_ yang digunakan dalam proyek ini merupakan data yang berisikan beberapa parameter yang digunakan dalam menentukan kualitas air. _dataset_ ini dapat diunduh di [Kaggle: Water Quality]([https://www.kaggle.com/_dataset_s/adityakadiwal/water-potability/data](https://www.kaggle.com/_dataset_s/mssmartypants/water-quality))
@@ -75,7 +75,6 @@ Gambar 2.1 Analisis fitur _dataset_
 ![Screenshot 2024-02-26 191745](https://github.com/Padmanaba231/Predictive-Analytic-Update/assets/157343566/c9053e29-bd60-4953-8e21-9e716a47bf62)
 <br>
 Gambar 2.2 Analisis fitur ammonia
-
 <br>
 Bisa dilihat pada gambar 2.1 terdapat satu hal yang terasa janggal. Pada fitur ammonia memiliki tipe data obyek. Padahal setelah diperiksa, ternyata fitur ammonia memiliki data tipe numerik. Oleh karena itu, tipe data pada kolom fitur ammonia perlu diubah menjadi data tipe numerik menggunakan fungsi yang telah disediakan oleh pandas yaitu fungsi to_numeric.
 
@@ -90,16 +89,20 @@ perlu untuk mengecek jumlah _missing value_ yang dimiliki _dataset_. Dengan meng
 
 
 #### Persebaran data
-![Screenshot 2024-02-22 144156](https://github.com/Padmanaba231/Predictive-Analytic-Update/assets/157343566/1ad74e6b-d70f-4515-8597-5e2d1ea7f2d2)
+![Persebaran data](https://github.com/Padmanaba231/Predictive-Analytic-Update/assets/157343566/46d650ec-cf0f-42f3-9b41-89efab88f0ff)
+
 <br>
 Gambar 2.4
 <br>
 Selanjutnya persebaran pada _dataset_ perlu untuk di cek kembali. Pada gambar 2.4 dapat dilihat bahwa persebaran data terkumpul pada kelas 0 (air tidak layak konsumsi). Jika dibiarkan hal ini dapat menyebabkan bias terhadap model yang akan dibuat. Permasalahan ini nantinya akan diselesaikan pada bagian Data Preparation.
 <br>
+
 ### Korelasi antar fitur
+
 Kita akan menghitung korelasi antar fitur yang ada menggunakan bantuan metode heatmap correlation. Didapatkan hasil heatmap sebagai berikut:
 <br>
-![Screenshot 2024-02-22 144950](https://github.com/Padmanaba231/Predictive-Analytic-Update/assets/157343566/b8fe243b-f745-470e-b42a-f59d89545e3a)
+![korelasi](https://github.com/Padmanaba231/Predictive-Analytic-Update/assets/157343566/024518f4-8b5b-4ed6-9929-1a8fa612af56)
+
 <br>
 Gambar 2.5
 <br>
@@ -110,81 +113,80 @@ Berdasarkan gambar 2.5 beberapa fitur mempunyai nilai korelasi yang kuat dengan 
 Seperti yang sudah dijelaskan sebelumnya, pada _dataset_ memiliki 3 _missing value_, yakni pada fitur ammonia. Karena jumlah _missing value_ yang dimiliki sedikit, _missing value_ tersebut dapat dihapus menggunakan fungsi dropna().
 
 ### Membagi _dataset_
-_Dataset_ akan dibagi_ menjadi data latih dan data uji. Data latih akan digunakan untuk membangun model, sedangkan data uji akan digunakan untuk menguji performa model. Dengan menggunakan metode train_test_split dari liblary sklearn untuk melakukan hal ini. Rasio dari pambagian _dataset_ sebesar 75% untuk data latih dan 25% untuk data uji. Data latih digunakan untuk melatih model sementara data uji digunakan untuk mengevaluasi model. Perlu diperhatikan bahwa pembagian _dataset_ harus dilakukan terlebih dahulu sebelum melakukan standarisasi. Hal ini dilakukan agar tidak terjadi kebocoran informasi pada data uji. Selain itu, ketika ingin menyeimbangkan persebaran data menggunakan metode _downsampling_, dapat menerapkan _downsampling_ pada data latih saja.
+_Dataset_ akan dibagi_ menjadi data latih dan data uji. Data latih akan digunakan untuk membangun model, sedangkan data uji akan digunakan untuk menguji performa model. Dengan menggunakan metode train_test_split dari liblary sklearn untuk melakukan hal ini. Rasio dari pambagian _dataset_ sebesar 75% untuk data latih dan 25% untuk data uji. Data latih digunakan untuk melatih model sementara data uji digunakan untuk mengevaluasi model. Perlu diperhatikan bahwa pembagian _dataset_ harus dilakukan terlebih dahulu sebelum melakukan standarisasi. Hal ini dilakukan agar tidak terjadi kebocoran informasi pada data uji. Selain itu, ketika ingin menyeimbangkan persebaran data menggunakan metode _undersampling_, dapat menerapkan _undersampling_ pada data latih saja.
 <br>
 
-### Balancing data menggunakan resampling
+### Balancing data menggunakan _undersampling_
 <br>
-<div><img src="https://github.com/Padmanaba231/Predictive-Analytic/blob/8e6f181e97942945bd355c3284118a6722e4043a/ML/IMG/1_CeOd_Wbn7O6kpjSTKTIUog.png" width="600"/></div>
+![resampling](https://github.com/Padmanaba231/Predictive-Analytic-Update/assets/157343566/f75c4904-3f0c-4964-b7b3-54576e4e8ebd)
 <br>
+Gsmbar 3.1
 <br>
-Seperti yang telah kita ketahui sebelumnya, data kita mengalami ketidakseimbangan. Kita akan menangani hal ini menggunakan metode oversampling dengan bantuan fitur SMOTE. Kita akan mencoba menyeimbangkan _dataset_ dengan meningkatkan ukuran sampel langka. Daripada membuang sampel berlimpah, sampel langka baru dihasilkan dengan menggunakan fitur SMOTE (Sintetis Minoritas Sampling Teknik). Setelah menerapkan metode ini, data kita akan lebih seimbang yang diharapkan dapat meningkatkan kinerja model kita nantinya.
+Seperti yang telah diketahui sebelumnya, data mengalami ketidakseimbangan.Permasalahan ini akan diselesaikan dengan metode _undersampling_. Kita akan mencoba menyeimbangkan _dataset_ dengan mengurangi jumlah sampel pelatihan yang berada di bawah kelas mayoritas. Walau akan kehilangan beberapa informasi jika menggunakan metode ini, data yang dimiliki tetap termasuk banyak. Jumlah data setelah menerapkan metodei ini sebesar 1824 data.
 
 ### Standarisasi
-Algoritma machine learning cenderung memberikan hasil yang lebih baik dan konvergen lebih cepat ketika data memiliki skala yang seragam atau mendekati distribusi normal. Untuk mencapai ini, proses scaling dan standarisasi sangat membantu dalam mengubah bentuk fitur data sehingga lebih mudah dipahami dan diolah oleh algoritma. Kita akan memanfaatkan fungsi standarisasi yang dimiliki oleh liblary sklearn.
+Algoritma _machine learning_ cenderung memberikan hasil yang lebih baik dan konvergen lebih cepat ketika data memiliki skala yang seragam atau mendekati distribusi normal. Untuk mencapai ini, proses _scaling_ dan standarisasi sangat membantu dalam mengubah bentuk fitur data sehingga lebih mudah dipahami dan diolah oleh algoritma. Kita akan memanfaatkan fungsi standarisasi yang dimiliki oleh liblary sklearn.
 
 # Modeling
 Proyek ini menggunakan 3 algoritma Machine Learning:
-1. KNN (K-Nearest Neighbour)
-2. SVC (Suport Vector Classification)
-3. Random Forest
+1. KNN
+2. SVC
+3. _Random Forest_
 
 ## KNN
-KNN merupakan singkatan dari K-Nearest Neighbor,algoritma ini bekerja dengan prinsip bahwa objek/kelas yang mirip cenderung berada pada jarak yang dekat satu sama lain.Dengan kata lain, data yang memiliki karakteristik serupa akan cenderung saling bertetangga dalam ruang fitur. Hal inilah yang membuat KNN salah satu algoritma yang cocok untuk menyelesaikan kasus klasifikasi. 
+KNN merupakan singkatan dari _K-Nearest Neighbor_,algoritma ini bekerja dengan prinsip bahwa objek/kelas yang mirip cenderung berada pada jarak yang dekat satu sama lain.Dengan kata lain, data yang memiliki karakteristik serupa akan cenderung saling bertetangga dalam ruang fitur. Hal inilah yang membuat KNN salah satu algoritma yang cocok untuk menyelesaikan kasus klasifikasi. 
 #### Tahapan Kerja Umum KNN
 + Memilih jumlah tetangga terdekat (K) yang akan digunakan untuk memutuskan kelas suatu data baru. 
 + Hitung jarak antara data baru yang akan diprediksi dengan setiap titik data dalam set pelatihan. 
 + Menentukan K tetangga berdasarkan jarak terkecil. Ini merupakan data pelatihan yang memiliki nilai atribut paling mirip dengan data baru.
 + Lakukan prehitungan mayoritas di antara tetangga terpilih untuk menentukan kelas dari data baru. Artinya, kelas yang paling umum di antara K tetangga tersebut akan menjadi prediksi kelas untuk data baru.
 
-Pada kasus proyek ini menggunakan <strong>n_neighbors = 25</strong> tetangga. Penentuan nilai <strong>K</strong> sangat berpengaruh pada kinerja model. Setelah mencoba berbagai nilai <strong>K</strong> didapatkan nilai <strong>K</strong> yang terbaik adalah sebesar 25. Untuk parameter yang lain, pada proyek ini menggunakan parameter default
+Pada kasus proyek ini menggunakan <strong>_n_neighbors_ = 25</strong> tetangga. Penentuan nilai <strong>K</strong> sangat berpengaruh pada kinerja model. Setelah mencoba berbagai nilai <strong>K</strong> didapatkan nilai <strong>K</strong> yang terbaik adalah sebesar 25. Untuk parameter yang lain, pada proyek ini menggunakan parameter _default_
 
 #### Kelebihan & Kekurangan KNN
 ##### Kelebihan
-Algoritma KNN relatif sederhana dan mudah dipahami. Konsep dasarnya cukup simple, yaitu mengambil mayoritas kelas dari tetangga terdekat. Algoritma KNN cocok untuk data non linear karena KNN dapat bekerja dengan baik pada data yang memiliki batas keputusan non-linier atau kompleks.
+Algoritma KNN relatif sederhana dan mudah dipahami. Konsep dasarnya cukup mudah, yaitu mengambil mayoritas kelas dari tetangga terdekat. Algoritma KNN cocok untuk data non linear karena KNN dapat bekerja dengan baik pada data yang memiliki batas keputusan _non-linier_ atau kompleks.
 ##### Kekurangan
 KNN memerlukan penentuan nilai <strong>K</strong> yang tepat agar model dapat bekerja dengan baik. Nilai <strong>K</strong> yang terlalu kecil dapat menyebabkan model sensitif terhadap noise, sedangkan nilai <strong>K</strong> yang terlalu besar dapat menyebabkan model terlalu halus dan kurang responsif terhadap perubahan lokal dalam data.
 
 ## SVC
-SVC sebenarnya termasuk kedalam algoritma SVM(Support Vector Machine). SVM merupakan model Machine Learning multifungsi yang dapat digunakan untuk menyelesaikan permasalahan klasifikasi, regresi, dan pendeteksian outlier. Algoritma Support Vector Machine (SVM) bertujuan untuk mengidentifikasi hyperplane optimal dalam ruang berdimensi-N (dengan N fitur) yang dapat efektif memisahkan titik-titik data input secara optimal. Pada kasus klasifikasi menggunakan SVC(Support Vector Classifier).
+SVC sebenarnya termasuk kedalam algoritma SVM(_Support Vector Machine_). SVM merupakan model Machine Learning multifungsi yang dapat digunakan untuk menyelesaikan permasalahan klasifikasi, regresi, dan pendeteksian _outlier_. Algoritma _Support Vector Machine_ (SVM) bertujuan untuk mengidentifikasi _hyperplane_ optimal dalam ruang berdimensi-N (dengan N fitur) yang dapat efektif memisahkan titik-titik data _input_ secara optimal. Pada kasus klasifikasi menggunakan SVC(_Support Vector Classifier_).
 
 #### Tahapan Kerja SVC secara umum
-+ SVC berupaya menemukan hyperplane yang memisahkan dua atau lebih kelas secara optimal. Hyperplane ini memiliki sifat yang dapat memaksimalkan margin, yaitu jarak antara hyperplane dan titik-titik terdekat dari setiap kelas, yang disebut sebagai Support Vectors.
-+ SVM berusaha untuk memaksimalkan margin ini, karena margin yang lebih besar memberikan tingkat kepercayaan yang lebih baik terhadap klasifikasi yang dilakukan oleh model.
-+ Ketika data tidak dapat dipisahkan secara linier, SVC menggunakan konsep kernel untuk mentransformasikan data ke ruang fitur yang lebih tinggi. Kernel membantu model SVC menangani kasus-kasus di mana batas keputusan antara kelas tidak dapat dijelaskan secara linear dalam ruang fitur asli.
-+ Setelah menemukan hyperplane yang optimal, SVC menggunakan batas keputusan untuk mengklasifikasikan data baru. Data yang berada di satu sisi hyperplane dianggap sebagai satu kelas, sedangkan data di sisi lainnya dianggap sebagai kelas yang berbeda.
++ SVC berupaya menemukan _hyperplane_ yang memisahkan dua atau lebih kelas secara optimal. _Hyperplane_ ini memiliki sifat yang dapat memaksimalkan _margin_, yaitu jarak antara _hyperplane_ dan titik-titik terdekat dari setiap kelas, yang disebut sebagai _Support Vectors_.
++ SVM berusaha untuk memaksimalkan _margin_, karena _margin_ yang lebih besar memberikan tingkat kepercayaan yang lebih baik terhadap klasifikasi yang dilakukan oleh model.
++ Ketika data tidak dapat dipisahkan secara linier, SVC menggunakan konsep _kernel_ untuk mentransformasikan data ke ruang fitur yang lebih tinggi. _Kernel_ membantu model SVC menangani kasus-kasus di mana batas keputusan antara kelas tidak dapat dijelaskan secara linear dalam ruang fitur asli.
++ Setelah menemukan _hyperplane_ yang optimal, SVC menggunakan batas keputusan untuk mengklasifikasikan data baru. Data yang berada di satu sisi _hyperplane_ dianggap sebagai satu kelas, sedangkan data di sisi lainnya dianggap sebagai kelas yang berbeda.
 
-Pada proyek ini menggunakan nilai parameter <strong>C</strong> sebesar 5. Parameter C pada model Support Vector Classifier (SVC) menentukan sejauh mana model ini akan memberikan toleransi terhadap kesalahan klasifikasi pada data pelatihan. Parameter ini disebut juga sebagai parameter penalti kesalahan (error penalty) atau parameter keberatan (regularization parameter). Parameter selain parameter <strong>C</strong> menggunakan parameter default SVC.
+Pada proyek ini menggunakan nilai parameter <strong>C</strong> sebesar 5. Parameter C pada model _Support Vector Classifier_ (SVC) menentukan sejauh mana model ini akan memberikan toleransi terhadap kesalahan klasifikasi pada data pelatihan. Parameter ini disebut juga sebagai parameter penalti kesalahan (_error penalty_) atau parameter keberatan (_regularization parameter_). Parameter selain parameter <strong>C</strong> menggunakan parameter _default_ SVC.
 #### Kelebihan & Kekurangan SVC
 ##### Kelebihan 
 + SVC dapat bekerja dengan baik bahkan dalam ruang fitur yang memiliki dimensi tinggi, karena mampu menangani kompleksitas data.
-+ Melalui penggunaan kernel, SVC dapat menangani data yang tidak dapat dipisahkan secara linier dalam ruang fitur asli(menggunakan kernel).
-+ Dengan adanya margin dan fungsi soft margin, SVC dapat menjadi tahan terhadap pengaruh dari data pencilan (outliers).
++ Melalui penggunaan _kernel_, SVC dapat menangani data yang tidak dapat dipisahkan secara linier dalam ruang fitur asli.
++ Dengan adanya _margin_ dan fungsi _soft margin_, SVC dapat menjadi tahan terhadap pengaruh dari data pencilan (_outliers_).
 
 ##### Kekurangan
 + Proses pelatihan pada SVC dapat menjadi komputasi yang intensif, terutama pada _dataset_ besar, karena melibatkan perhitungan jarak dan optimasi yang kompleks.
 + SVC mungkin kurang efisien pada _dataset_ yang sangat besar atau memiliki banyak fitur, karena dapat memerlukan memori yang signifikan dan waktu komputasi yang lebih lama.
 
-## Random Forest
-Random Forest merupakan model prediksi yang menggunakan teknik bagging dengan menggabungkan beberapa model untuk bekerja secara kolaboratif. Konsep di balik model ensemble adalah grup model yang bekerja bersama-sama untuk menyelesaikan suatu masalah, yang dapat menghasilkan tingkat keberhasilan yang lebih tinggi daripada model yang beroperasi secara independen. Pada model ensemble, setiap model membuat prediksi secara independen, dan hasil prediksi dari masing-masing model tersebut digabungkan untuk membentuk prediksi akhir.
-Teknik bagging ini cocok diterapkan pada algoritma decision tree. Random forest, pada dasarnya, merupakan bentuk bagging dari algoritma decision tree. Anda dapat membayangkan random forest sebagai sebuah tas (bag) yang berisi beberapa model decision tree. Setiap model decision tree memiliki hyperparameter yang berbeda dan dilatih pada subset data yang berbeda. Strategi pembagian data pada algoritma decision tree melibatkan pemilihan acak sejumlah fitur dan sampel dari _dataset_ yang terdiri dari n fitur dan m sampel.
-Inilah sebabnya mengapa algoritma ini disebut sebagai random forest, karena terdiri dari banyak pohon keputusan (decision tree) di mana pembagian data dan fitur dilakukan secara acak.
+## _Random Forest_
+_Random Forest_ merupakan model prediksi yang menggunakan teknik bagging dengan menggabungkan beberapa model untuk bekerja secara kolaboratif. Konsep di balik model ensemble adalah grup model yang bekerja bersama-sama untuk menyelesaikan suatu masalah, yang dapat menghasilkan tingkat keberhasilan yang lebih tinggi daripada model yang beroperasi secara independen. Pada model ensemble, setiap model membuat prediksi secara independen, dan hasil prediksi dari masing-masing model tersebut digabungkan untuk membentuk prediksi akhir. Teknik bagging ini cocok diterapkan pada algoritma _decision tree_. _Random Forest_, pada dasarnya, merupakan bentuk bagging dari algoritma _decision tree_.Dapat dibayangkan _Random Forest_ sebagai sebuah tas yang berisi beberapa model _decision tree_. Setiap model _decision tree_ memiliki _hyperparameter_ yang berbeda dan dilatih pada subset data yang berbeda. Strategi pembagian data pada algoritma decision tree melibatkan pemilihan acak sejumlah fitur dan sampel dari _dataset_ yang terdiri dari n fitur dan m sampel. Inilah sebabnya mengapa algoritma ini disebut sebagai _Random Forest_, karena terdiri dari banyak pohon keputusan (_decision tree_) di mana pembagian data dan fitur dilakukan secara acak.
 
-#### Tahapan Umum Random Forest
-+ Membangun decision tree untuk setiap subsample data yang telah dipilih. Pada tahap ini, juga dilakukan pemilihan acak sejumlah fitur yang akan digunakan untuk membagi setiap simpul dalam decision tree.
-+ Menggunakan setiap decision tree yang telah dibangun untuk membuat prediksi pada data yang tidak terlihat (testing) atau data validasi. Setiap decision tree memberikan prediksi berdasarkan fitur yang dipilih secara acak.
-+ Pada tahap ini, hasil prediksi dari setiap decision tree dijumlahkan (voting) jika tugasnya klasifikasi, atau diambil rata-ratanya jika tugasnya regresi. Ini menghasilkan prediksi akhir dari Random Forest.
+#### Tahapan Umum _Random Forest_
++ Membangun _decision tree_ untuk setiap subsample data yang telah dipilih. Pada tahap ini, juga dilakukan pemilihan acak sejumlah fitur yang akan digunakan untuk membagi setiap simpul dalam _decision tree_.
++ Menggunakan setiap _decision tree_ yang telah dibangun untuk membuat prediksi pada data yang tidak terlihat (_testing_) atau data _validasi_. Setiap _decision tree_ memberikan prediksi berdasarkan fitur yang dipilih secara acak.
++ Tahap terakhir, hasil prediksi dari setiap _decision tree_ dijumlahkan (_voting_) jika tugasnya klasifikasi, atau diambil rata-ratanya jika tugasnya regresi. Ini menghasilkan prediksi akhir dari _Random Forest_.
 
-Pada proyek ini menggunakan nilai parameter <strong>n_estimators=110</strong>, <strong>max_depth=16</strong>, <strong>random_state=126</strong>, <strong>n_jobs=1</strong>. <strong>n_estimators</strong> menentukan jumlah pohon keputusan yang akan dibangun dalam ensemble (hutan). <strong>max_depth</strong>  menentukan kedalaman maksimum dari setiap pohon keputusan dalam ensemble. <strong>random_state=126</strong> menentukan seed untuk menghasilkan angka acak. Sehingga model menghasilkan yang sama setiap dilatih.  <strong>n_jobs=1</strong> menentukan jumlah pekerjaan paralel yang akan digunakan selama pelatihan. Selain parameter diatas menggunakan parameter default.
+Pada proyek ini menggunakan nilai parameter <strong>_n_estimators_=110</strong>, <strong>_max_depth_=16</strong>, <strong>_random_state_=123</strong>, <strong>_n_jobs_=1</strong>. <strong>_n_estimators_</strong> menentukan jumlah pohon keputusan yang akan dibangun dalam _ensemble_ (hutan). <strong>_max_depth_</strong>  menentukan kedalaman maksimum dari setiap pohon keputusan dalam ensemble. <strong>_random_state_=123</strong> menentukan seed untuk menghasilkan angka acak. Sehingga model menghasilkan yang sama setiap dilatih.  <strong>_n_jobs_=1</strong> menentukan jumlah pekerjaan paralel yang akan digunakan selama pelatihan. Selain parameter diatas menggunakan parameter _default_.
 
-#### Kelebihan dan Kekurangan Random Forest
+#### Kelebihan dan Kekurangan _Random Forest_
 ##### Kelebihan
-Random Forest biasanya memberikan akurasi yang tinggi karena menggabungkan prediksi dari beberapa tree decision yang berbeda. Karena menggunakan banyak pohon keputusan dan mengambil rata-rata atau modus dari prediksi mereka, Random Forest cenderung lebih tahan terhadap overfitting dibandingkan dengan tree dicision tunggal.
+_Random Forest_ biasanya memberikan akurasi yang tinggi karena menggabungkan prediksi dari beberapa pohon keputusan yang berbeda. Karena menggunakan banyak pohon keputusan dan mengambil rata-rata atau modus dari prediksi, _Random Forest_ cenderung lebih tahan terhadap overfitting dibandingkan dengan tree dicision tunggal.
 ##### Kekurangan
-Random Forest dapat menghasilkan model yang cukup besar, terutama jika jumlah pohon dan fitur cukup besar. Ini dapat menjadi masalah jika perlu mengoptimalkan penggunaan memori atau mempercepat waktu prediksi.
+_Random Forest_ dapat menghasilkan model yang cukup besar, terutama jika jumlah pohon dan fitur cukup besar. Ini dapat menjadi masalah jika perlu mengoptimalkan penggunaan memori atau mempercepat waktu prediksi.
 
 #### Pemilihan Model
-Pada bagian Business Understanding kita ingin mengetahui dan memilih algoritma yang paling baik. Ketiga algoritma yang kita pakai memiliki kelebihan dan kekurangannya masing-masing. Berdasarkan kelebihan dan kelemahan tiap model, pada proyek ini kami memutuskan untuk memilih model <trong>Random Forest</strong> sebagai model terbaik. Hal ini dikarenakan Random Forest membangun banyak pohon keputusan secara parallel dan menggabungkan hasil prediksi mereka. Kemampuan ini membantu dalam menangani keragaman dan kompleksitas data dengan lebih baik daripada model tunggal seperti KNN atau SVM. Selain itu Random Forest dapat menangani _dataset_ dengan jumlah fitur yang besar dan mampu mengatasi fitur-fitur yang tidak teratur atau tidak relevan. Hal ini sesuai dengan _dataset_ kita yang memiliki nilai korelasi yang rendah antar fiturnya. Pada bagian Evaluation nantinya kita akan mengkonfirmasi apakah benar model <trong>Random Forest</strong> merupakan yang terbaik daripada model <trong>KNN</strong> dan juga <trong>SVC</strong>
+Pada bagian Business Understanding ingin mengetahui dan memilih algoritma yang paling baik. Ketiga algoritma yang telah dipakai memiliki kelebihan dan kekurangannya masing-masing. Berdasarkan kelebihan dan kelemahan tiap model, pada proyek ini ditentukan bahwa model <trong>_Random Forest_</strong> sebagai model terbaik. Hal ini dikarenakan _Random Forest_ membangun banyak pohon keputusan secara parallel dan menggabungkan hasil prediksi. Kemampuan ini membantu dalam menangani keragaman dan kompleksitas data dengan lebih baik daripada model tunggal seperti KNN atau SVM. Selain itu _Random Forest_ dapat menangani _dataset_ dengan jumlah fitur yang besar dan mampu mengatasi fitur-fitur yang tidak teratur atau tidak relevan. Pada bagian Evaluation nantinya akan dikonfirmasi apakah benar model <trong>_Random Forest_</strong> merupakan yang terbaik daripada model <trong>KNN</strong> dan juga <trong>SVC</strong>
 
 # Evaluation
 Pada Proyek ini menggunakan model machine learning bertipe klasifikasi yang berarti Jika prediksi cocok dengan label kelas sebenarnya, performanya baik. Sedangkan jika tidak, performanya buruk. Secara teknis, perbedaan antara kelas sebenarnya dan kelas yang diprediksi disebut kesalahan klasifikasi. Maka, semua metrik mengukur seberapa kecil nilai kesalahan klasifikasi tersebut. Beberapa metrik yang akan kita gunakan adalah accuracy, precision, recall, f1_score.
@@ -220,11 +222,11 @@ Keterangan:
 <br>
 <br>
 
-Dari tabel di atas kita bisa melihat bahwa ketiga model memiliki nilai evaluasi yang cukup kecil. Padalah ketiga model tersebut sangat cocok digunakan pada kasus ini yakni kasus klasifikasi. Hal ini mungkin disebabkan korelasi antar fitur pada _dataset_ yang rendah, mengakibatkan evaluasi model yang rendah juga. Dari tabel tersebut kita juga mendapatkan informasi bahwa model <trong>Random Forest</strong> memiliki nilai evaluasi yang paling tinggi. Ini berarti pernyataan kita sebelumnya bahwa <trong>Random Forest</strong> merupakan model terbaik diantara model lain yang kita gunakan adalah benar.
+Dari tabel di atas kita bisa melihat bahwa ketiga model memiliki nilai evaluasi yang cukup kecil. Padalah ketiga model tersebut sangat cocok digunakan pada kasus ini yakni kasus klasifikasi. Hal ini mungkin disebabkan korelasi antar fitur pada _dataset_ yang rendah, mengakibatkan evaluasi model yang rendah juga. Dari tabel tersebut kita juga mendapatkan informasi bahwa model <trong>_Random Forest_</strong> memiliki nilai evaluasi yang paling tinggi. Ini berarti pernyataan kita sebelumnya bahwa <trong>_Random Forest_</strong> merupakan model terbaik diantara model lain yang kita gunakan adalah benar.
 
 
 ## Kesimpulan 
-Berdasarkan dari apa yang telah kita lakukan selama ini, kita dapat menjawab semua dari problem statement yang kita nyatakan sebelumnya. Pertama, pengaruh fitur pada _dataset_ dalam menentukan kelayakan konsumsi air terbilang rendah. Hal ini dikarenakan korelasi antar fitur pada _dataset_ memiliki nilai yang rendah. Hal ini juga didukung oleh fakta bahwa ketiga model memiliki niali evaluasi yang relatif rendah terhadap _dataset_ yang kita gunakan. Kedua, cara yang kita gunakan agar data dapat dilatih dengan baik oleh model dengan beberapa metode. Mulai dari menangani missing value, membagi _dataset_ menjadi data latih dan data uji, menangani ketidakseimbangan data menggunakan metode oversampling, hingga melakukan standarisasi pada data. Ketiga, algoritma yang memiliki kinerja paling baik terhadap _dataset_ yang kita miliki adalah algoritma <trong>Random Forest</strong>. Hal ini dibuktikan <trong>Random Forest</strong> memiliki nilai evaluasi tertinggi diantara model lainnya.
+Berdasarkan dari apa yang telah kita lakukan selama ini, kita dapat menjawab semua dari problem statement yang kita nyatakan sebelumnya. Pertama, pengaruh fitur pada _dataset_ dalam menentukan kelayakan konsumsi air terbilang rendah. Hal ini dikarenakan korelasi antar fitur pada _dataset_ memiliki nilai yang rendah. Hal ini juga didukung oleh fakta bahwa ketiga model memiliki niali evaluasi yang relatif rendah terhadap _dataset_ yang kita gunakan. Kedua, cara yang kita gunakan agar data dapat dilatih dengan baik oleh model dengan beberapa metode. Mulai dari menangani missing value, membagi _dataset_ menjadi data latih dan data uji, menangani ketidakseimbangan data menggunakan metode oversampling, hingga melakukan standarisasi pada data. Ketiga, algoritma yang memiliki kinerja paling baik terhadap _dataset_ yang kita miliki adalah algoritma <trong>_Random Forest_</strong>. Hal ini dibuktikan <trong>_Random Forest_</strong> memiliki nilai evaluasi tertinggi diantara model lainnya.
 
 
 ![1_CeOd_Wbn7O6kpjSTKTIUog](https://github.com/Padmanaba231/Predictive-Analytic/assets/157343566/17a3c212-31a6-4e85-99df-8dbbd58450a2)
