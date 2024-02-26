@@ -112,10 +112,6 @@ Berdasarkan gambar 2.5 beberapa fitur mempunyai nilai korelasi yang kuat dengan 
 ### Menangani Missing Value
 Seperti yang sudah dijelaskan sebelumnya, pada _dataset_ memiliki 3 _missing value_, yakni pada fitur ammonia. Karena jumlah _missing value_ yang dimiliki sedikit, _missing value_ tersebut dapat dihapus menggunakan fungsi dropna().
 
-### Membagi _dataset_
-_Dataset_ akan dibagi_ menjadi data latih dan data uji. Data latih akan digunakan untuk membangun model, sedangkan data uji akan digunakan untuk menguji performa model. Dengan menggunakan metode train_test_split dari liblary sklearn untuk melakukan hal ini. Rasio dari pambagian _dataset_ sebesar 75% untuk data latih dan 25% untuk data uji. Data latih digunakan untuk melatih model sementara data uji digunakan untuk mengevaluasi model. Perlu diperhatikan bahwa pembagian _dataset_ harus dilakukan terlebih dahulu sebelum melakukan standarisasi. Hal ini dilakukan agar tidak terjadi kebocoran informasi pada data uji. Selain itu, ketika ingin menyeimbangkan persebaran data menggunakan metode _undersampling_, dapat menerapkan _undersampling_ pada data latih saja.
-<br>
-
 ### Balancing data menggunakan _undersampling_
 <br>
 
@@ -124,6 +120,11 @@ _Dataset_ akan dibagi_ menjadi data latih dan data uji. Data latih akan digunaka
 Gsmbar 3.1
 <br><br>
 Seperti yang telah diketahui sebelumnya, data mengalami ketidakseimbangan.Permasalahan ini akan diselesaikan dengan metode _undersampling_. Dengan cara menyeimbangkan _dataset_ dengan mengurangi jumlah sampel pelatihan yang berada di bawah kelas mayoritas. Walau akan kehilangan beberapa informasi jika menggunakan metode ini, data yang dimiliki tetap termasuk banyak. Jumlah data setelah menerapkan metodei ini sebesar 1824 data.
+
+### Membagi _dataset_
+_Dataset_ akan dibagi_ menjadi data latih dan data uji. Data latih akan digunakan untuk membangun model, sedangkan data uji akan digunakan untuk menguji performa model. Dengan menggunakan metode train_test_split dari liblary sklearn untuk melakukan hal ini. Rasio dari pambagian _dataset_ sebesar 75% untuk data latih dan 25% untuk data uji. Data latih digunakan untuk melatih model sementara data uji digunakan untuk mengevaluasi model. Perlu diperhatikan bahwa pembagian _dataset_ harus dilakukan terlebih dahulu sebelum melakukan standarisasi. Hal ini dilakukan agar tidak terjadi kebocoran informasi pada data uji.
+<br>
+
 
 ### Standarisasi
 Algoritma _machine learning_ cenderung memberikan hasil yang lebih baik dan konvergen lebih cepat ketika data memiliki skala yang seragam atau mendekati distribusi normal. Untuk mencapai ini, proses _scaling_ dan standarisasi sangat membantu dalam mengubah bentuk fitur data sehingga lebih mudah dipahami dan diolah oleh algoritma. Pada proyek ini akan memanfaatkan fungsi standarisasi yang dimiliki oleh liblary sklearn.
