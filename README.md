@@ -191,7 +191,10 @@ Pada bagian Business Understanding ingin mengetahui dan memilih algoritma yang p
 # Evaluation
 Pada Proyek ini menggunakan model machine learning bertipe klasifikasi yang berarti Jika prediksi cocok dengan label kelas sebenarnya, performanya baik. Sedangkan jika tidak, performanya buruk. Secara teknis, perbedaan antara kelas sebenarnya dan kelas yang diprediksi disebut kesalahan klasifikasi. Maka, semua metrik mengukur seberapa kecil nilai kesalahan klasifikasi tersebut. Beberapa metrik yang akan kita gunakan adalah accuracy, precision, recall, f1_score.
 <br>
-$$ Accuracy = { TP + TN \over TP + TN + FP + FN} $$
+$$Accuracy = {TP + TN \over TP + TN + FP + FN}$$
+$$Precision = {TP \over TP + FP}$$
+$$Recall = {TP \over TP + FN}$$
+$$F1 = {2 * Precision * Recall \over Precision + Recall}$$
 <br>
 Keterangan:
 <br>
@@ -207,19 +210,25 @@ Keterangan:
 <br>
 
 
-<strong>Accuracy</strong> mengukur persentase prediksi yang tepat dari total prediksi yang dilakukan. Skor akurasi berkisar antara 0 hingga 1, di mana nilai 1 mencerminkan prediksi yang sempurna, sementara nilai 0 menunjukkan bahwa tidak ada prediksi yang benar.
+<strong>_Accuracy_</strong> mengukur persentase prediksi yang tepat dari total prediksi yang dilakukan. Skor akurasi berkisar antara 0 hingga 1, di mana nilai 1 mencerminkan prediksi yang sempurna, sementara nilai 0 menunjukkan bahwa tidak ada prediksi yang benar.
 <br>
-<strong>Precision</strong> mengukur rasio prediksi positif yang akurat dari total prediksi positif yang dibuat. Presisi memberikan wawasan tentang seberapa tepat model machine learning dalam membuat prediksi positif. Rentang nilai presisi adalah antara 0 hingga 1, di mana nilai 1 menunjukkan tingkat presisi tertinggi, sementara nilai 0 menandakan ketidakakuratan total dalam prediksi positif. Recall mengukur proporsi data positif yang berhasil diidentifikasi dari total data positif yang sebenarnya. 
+<strong>_Precision_</strong> mengukur rasio prediksi positif yang akurat dari total prediksi positif yang dibuat. Presisi memberikan wawasan tentang seberapa tepat model machine learning dalam membuat prediksi positif. Rentang nilai presisi adalah antara 0 hingga 1, di mana nilai 1 menunjukkan tingkat presisi tertinggi, sementara nilai 0 menandakan ketidakakuratan total dalam prediksi positif. Recall mengukur proporsi data positif yang berhasil diidentifikasi dari total data positif yang sebenarnya. 
 <br>
-<strong>Recall</strong> memberikan gambaran tentang seberapa efektif model machine learning dalam menemukan semua data positif yang ada. Rentang nilai recall adalah antara 0 hingga 1, di mana nilai 1 mencerminkan kemampuan model dalam menemukan semua data positif, sementara nilai 0 menandakan bahwa model gagal mengidentifikasi data positif. 
+<strong>_Recall_</strong> memberikan gambaran tentang seberapa efektif model machine learning dalam menemukan semua data positif yang ada. Rentang nilai recall adalah antara 0 hingga 1, di mana nilai 1 mencerminkan kemampuan model dalam menemukan semua data positif, sementara nilai 0 menandakan bahwa model gagal mengidentifikasi data positif. 
 <br>
-<strong>F1 Score</strong> rata-rata harmonis dari precision dan recall. F1 Score adalah ukuran keseimbangan antara precision dan recall, dengan nilai yang tinggi menunjukkan keseimbangan yang baik antara kedua metrik tersebut.
+<strong>_F1 Score_</strong> rata-rata harmonis dari precision dan recall. F1 Score adalah ukuran keseimbangan antara precision dan recall, dengan nilai yang tinggi menunjukkan keseimbangan yang baik antara kedua metrik tersebut.
 <br>
 <br>
 ### Hasil Evaluasi Ketiga Model
 <br>
-<div><img src="https://github.com/Padmanaba231/Predictive-Analytic/blob/c5ffe142a2d8d6a05d8b9edb7ef60b7e48f4f64c/ML/IMG/Screenshot%202024-02-23%20165515.png" width="600"/></div>
+|           | KNN      | SVM      | Randomforest |
+|-----------|----------|----------|--------------|
+| accuracy  | 0.813596 | 0.905702 | 0.910088     |
+| precision | 0.757679 | 0.903766 | 0.980296     |
+| recall    | 0.940678 | 0.915254 | 0.84322      |
+| f1_score  | 0.839319 | 0.909474 | 0.906606     |
 <br>
+Tabel 1 Hasil Evaluasi Model
 <br>
 
 Dari tabel di atas kita bisa melihat bahwa ketiga model memiliki nilai evaluasi yang cukup kecil. Padalah ketiga model tersebut sangat cocok digunakan pada kasus ini yakni kasus klasifikasi. Hal ini mungkin disebabkan korelasi antar fitur pada _dataset_ yang rendah, mengakibatkan evaluasi model yang rendah juga. Dari tabel tersebut kita juga mendapatkan informasi bahwa model <trong>_Random Forest_</strong> memiliki nilai evaluasi yang paling tinggi. Ini berarti pernyataan kita sebelumnya bahwa <trong>_Random Forest_</strong> merupakan model terbaik diantara model lain yang kita gunakan adalah benar.
