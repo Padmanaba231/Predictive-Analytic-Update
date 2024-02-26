@@ -220,7 +220,8 @@ Keterangan:
 <br>
 <br>
 ### Hasil Evaluasi Ketiga Model
-<br>
+
+
 |           | KNN      | SVM      | Randomforest |
 |-----------|----------|----------|--------------|
 | accuracy  | 0.813596 | 0.905702 | 0.910088     |
@@ -230,15 +231,13 @@ Keterangan:
 <br>
 Tabel 1 Hasil Evaluasi Model
 <br>
-
-Dari tabel di atas kita bisa melihat bahwa ketiga model memiliki nilai evaluasi yang cukup kecil. Padalah ketiga model tersebut sangat cocok digunakan pada kasus ini yakni kasus klasifikasi. Hal ini mungkin disebabkan korelasi antar fitur pada _dataset_ yang rendah, mengakibatkan evaluasi model yang rendah juga. Dari tabel tersebut kita juga mendapatkan informasi bahwa model <trong>_Random Forest_</strong> memiliki nilai evaluasi yang paling tinggi. Ini berarti pernyataan kita sebelumnya bahwa <trong>_Random Forest_</strong> merupakan model terbaik diantara model lain yang kita gunakan adalah benar.
+Dari tabel 1 bisa dilihat bahwa ketiga ketiga model mempunyai performa yang cukup baik. Pada model __KNN__ mempunyai nilai evaluasi paling rendah diantar yang lain. Sementara model <strong>_Random Forest_</strong> memiliki nilai akurasi yang paling tinggi. Walau demikian, tampaknya model <strong>_Random Forest_</strong> memiliki nilai _recall_ yang lebih rendah dari model lainnya. Sementara itu, tampaknya model __SVC__ memiliki nilai evaluasi yang paling stabil diantara model lainnya. Nilai evaluasinya berada di kisaran 90 pada ke-empat metriks. Jadi bisa disimpulkan bahwa model __SVC__ lah yang terbaik dan paling cocok berdasarkan permasalahan dan _Dataset_ yang digunakan pada proyek ini.
 
 
 ## Kesimpulan 
-Berdasarkan dari apa yang telah kita lakukan selama ini, kita dapat menjawab semua dari problem statement yang kita nyatakan sebelumnya. Pertama, pengaruh fitur pada _dataset_ dalam menentukan kelayakan konsumsi air terbilang rendah. Hal ini dikarenakan korelasi antar fitur pada _dataset_ memiliki nilai yang rendah. Hal ini juga didukung oleh fakta bahwa ketiga model memiliki niali evaluasi yang relatif rendah terhadap _dataset_ yang kita gunakan. Kedua, cara yang kita gunakan agar data dapat dilatih dengan baik oleh model dengan beberapa metode. Mulai dari menangani missing value, membagi _dataset_ menjadi data latih dan data uji, menangani ketidakseimbangan data menggunakan metode oversampling, hingga melakukan standarisasi pada data. Ketiga, algoritma yang memiliki kinerja paling baik terhadap _dataset_ yang kita miliki adalah algoritma <trong>_Random Forest_</strong>. Hal ini dibuktikan <trong>_Random Forest_</strong> memiliki nilai evaluasi tertinggi diantara model lainnya.
+Berdasarkan dari apa yang telah kita lakukan selama ini, kita dapat menjawab semua dari problem statement yang kita nyatakan sebelumnya. Pertama, pengaruh fitur pada _dataset_ dalam menentukan kelayakan konsumsi air terbilang cukup kuat. Hal ini dikarenakan bebrapa pasangan fitur memiliki nilai korelasi yang cukup kuat. Hal ini juga didukung oleh fakta bahwa ketiga model memiliki niali evaluasi yang relatif tinggi terhadap _dataset_ yang digunakan. Kedua, pada proyek ini telah menerapkan berbagai metode dalam menganalisa dan mengolah data agar dapat digunakan dengan baik oleh model. Mulai dari menangani _missing value_, membagi _dataset_ menjadi data latih dan data uji, menangani ketidakseimbangan data menggunakan metode _undersampling_, hingga melakukan standarisasi pada data. Ketiga, algoritma yang memiliki kinerja paling baik terhadap _dataset_ yang kita miliki adalah algoritma <trong>SVC</strong>. Hal ini dibuktikan <trong>SVC</strong> memiliki nilai evaluasi tinggi dan stabil diantara model lainnya.
 
 
-![1_CeOd_Wbn7O6kpjSTKTIUog](https://github.com/Padmanaba231/Predictive-Analytic/assets/157343566/17a3c212-31a6-4e85-99df-8dbbd58450a2)
 
 
 
