@@ -102,7 +102,6 @@ Selanjutnya persebaran pada _dataset_ perlu untuk di cek kembali. Pada gambar 2.
 Kita akan menghitung korelasi antar fitur yang ada menggunakan bantuan metode heatmap correlation. Didapatkan hasil heatmap sebagai berikut:
 <br>
 ![korelasi](https://github.com/Padmanaba231/Predictive-Analytic-Update/assets/157343566/024518f4-8b5b-4ed6-9929-1a8fa612af56)
-
 <br>
 Gambar 2.5
 <br>
@@ -118,7 +117,8 @@ _Dataset_ akan dibagi_ menjadi data latih dan data uji. Data latih akan digunaka
 
 ### Balancing data menggunakan _undersampling_
 <br>
-![resampling](https://github.com/Padmanaba231/Predictive-Analytic-Update/assets/157343566/f75c4904-3f0c-4964-b7b3-54576e4e8ebd)
+
+![RESAMPLING](https://github.com/Padmanaba231/Predictive-Analytic-Update/assets/157343566/f89460af-2109-4ecc-af09-680c474a7b74)
 <br>
 Gsmbar 3.1
 <br>
@@ -191,7 +191,7 @@ Pada bagian Business Understanding ingin mengetahui dan memilih algoritma yang p
 # Evaluation
 Pada Proyek ini menggunakan model machine learning bertipe klasifikasi yang berarti Jika prediksi cocok dengan label kelas sebenarnya, performanya baik. Sedangkan jika tidak, performanya buruk. Secara teknis, perbedaan antara kelas sebenarnya dan kelas yang diprediksi disebut kesalahan klasifikasi. Maka, semua metrik mengukur seberapa kecil nilai kesalahan klasifikasi tersebut. Beberapa metrik yang akan kita gunakan adalah accuracy, precision, recall, f1_score.
 <br>
-<div><img src="https://github.com/Padmanaba231/Predictive-Analytic/blob/1e5595f91d1606c2a49c3a54ef07b0e140191616/ML/IMG/Screenshot%202024-02-23%20163401.png" width="600"/></div>
+$$ Accuracy = { TP + TN \over TP + TN + FP + FN} $$
 <br>
 Keterangan:
 <br>
