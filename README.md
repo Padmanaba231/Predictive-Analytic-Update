@@ -76,6 +76,7 @@ Gambar 2.1 Analisis fitur _dataset_
 <br>
 Gambar 2.2 Analisis fitur ammonia
 <br>
+<br>
 Bisa dilihat pada gambar 2.1 terdapat satu hal yang terasa janggal. Pada fitur ammonia memiliki tipe data obyek. Padahal setelah diperiksa, ternyata fitur ammonia memiliki data tipe numerik. Oleh karena itu, tipe data pada kolom fitur ammonia perlu diubah menjadi data tipe numerik menggunakan fungsi yang telah disediakan oleh pandas yaitu fungsi to_numeric.
 
 
@@ -84,7 +85,7 @@ Bisa dilihat pada gambar 2.1 terdapat satu hal yang terasa janggal. Pada fitur a
 ![missing_val](https://github.com/Padmanaba231/Predictive-Analytic-Update/assets/157343566/83762d39-9550-4bf4-b5e7-e24158494cac)
 <br>
 Gambar 2.3 Analisis _missing value_
-<br>
+<br><br>
 perlu untuk mengecek jumlah _missing value_ yang dimiliki _dataset_. Dengan menggunakan fungsi isnull().sum() untuk mengetahui jumlah _missing value_ dan fitur yang memiliki _missing value_. Terdapat 3 _missing value_ pada _dataset_ yaitu pada fitur ammonia.
 
 
@@ -93,7 +94,7 @@ perlu untuk mengecek jumlah _missing value_ yang dimiliki _dataset_. Dengan meng
 
 <br>
 Gambar 2.4
-<br>
+<br><br>
 Selanjutnya persebaran pada _dataset_ perlu untuk di cek kembali. Pada gambar 2.4 dapat dilihat bahwa persebaran data terkumpul pada kelas 0 (air tidak layak konsumsi). Jika dibiarkan hal ini dapat menyebabkan bias terhadap model yang akan dibuat. Permasalahan ini nantinya akan diselesaikan pada bagian Data Preparation.
 <br>
 
@@ -104,7 +105,7 @@ Menghitung korelasi antar fitur yang ada menggunakan bantuan metode heatmap corr
 ![korelasi](https://github.com/Padmanaba231/Predictive-Analytic-Update/assets/157343566/024518f4-8b5b-4ed6-9929-1a8fa612af56)
 <br>
 Gambar 2.5
-<br>
+<br><br>
 Berdasarkan gambar 2.5 beberapa fitur mempunyai nilai korelasi yang kuat dengan fitur lainnya. Jika diamati, pasangan fitur yang memiliki nilai korelasi paling besar adalah antara fitur virus dan bakteri. Hal ini dapat diartikan bahwa air yang terindikasi memiliki kandungan virus di dalamnya cenderung juga memiliki kandungan bakteri di dalamnya.
 
 # Data Preparation
@@ -121,7 +122,7 @@ _Dataset_ akan dibagi_ menjadi data latih dan data uji. Data latih akan digunaka
 ![RESAMPLING](https://github.com/Padmanaba231/Predictive-Analytic-Update/assets/157343566/f89460af-2109-4ecc-af09-680c474a7b74)
 <br>
 Gsmbar 3.1
-<br>
+<br><br>
 Seperti yang telah diketahui sebelumnya, data mengalami ketidakseimbangan.Permasalahan ini akan diselesaikan dengan metode _undersampling_. Dengan cara menyeimbangkan _dataset_ dengan mengurangi jumlah sampel pelatihan yang berada di bawah kelas mayoritas. Walau akan kehilangan beberapa informasi jika menggunakan metode ini, data yang dimiliki tetap termasuk banyak. Jumlah data setelah menerapkan metodei ini sebesar 1824 data.
 
 ### Standarisasi
