@@ -239,6 +239,7 @@ Berdasarkan dari apa yang telah kita lakukan selama ini, kita dapat menjawab sem
 <br>
 # Referensi
 [1] Nasir, Nidia & Kansal, Afreen & Alshaltone, Omar & Barneih, Feras & Sameer, Mustafa & Shanableh, Abdallah & Al-Shamma'a, Ahmed. (2022). Water quality classification using machine learning algorithms. 10.1016/j.jwpe.2022.102920
+<br>
 [2] Setiawan, Dennis & Hendra. (2023). Uji Bakteriologis Air Minum Isi Ulang dengan Bakteri Escherichia coli dan Coliform sebagai Indikator. 10.31004/prepotif.v7i1.13459
 
 
