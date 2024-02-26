@@ -99,7 +99,7 @@ Selanjutnya persebaran pada _dataset_ perlu untuk di cek kembali. Pada gambar 2.
 
 ### Korelasi antar fitur
 
-Kita akan menghitung korelasi antar fitur yang ada menggunakan bantuan metode heatmap correlation. Didapatkan hasil heatmap sebagai berikut:
+Menghitung korelasi antar fitur yang ada menggunakan bantuan metode heatmap correlation. Didapatkan hasil heatmap sebagai berikut:
 <br>
 ![korelasi](https://github.com/Padmanaba231/Predictive-Analytic-Update/assets/157343566/024518f4-8b5b-4ed6-9929-1a8fa612af56)
 <br>
@@ -122,10 +122,10 @@ _Dataset_ akan dibagi_ menjadi data latih dan data uji. Data latih akan digunaka
 <br>
 Gsmbar 3.1
 <br>
-Seperti yang telah diketahui sebelumnya, data mengalami ketidakseimbangan.Permasalahan ini akan diselesaikan dengan metode _undersampling_. Kita akan mencoba menyeimbangkan _dataset_ dengan mengurangi jumlah sampel pelatihan yang berada di bawah kelas mayoritas. Walau akan kehilangan beberapa informasi jika menggunakan metode ini, data yang dimiliki tetap termasuk banyak. Jumlah data setelah menerapkan metodei ini sebesar 1824 data.
+Seperti yang telah diketahui sebelumnya, data mengalami ketidakseimbangan.Permasalahan ini akan diselesaikan dengan metode _undersampling_. Dengan cara menyeimbangkan _dataset_ dengan mengurangi jumlah sampel pelatihan yang berada di bawah kelas mayoritas. Walau akan kehilangan beberapa informasi jika menggunakan metode ini, data yang dimiliki tetap termasuk banyak. Jumlah data setelah menerapkan metodei ini sebesar 1824 data.
 
 ### Standarisasi
-Algoritma _machine learning_ cenderung memberikan hasil yang lebih baik dan konvergen lebih cepat ketika data memiliki skala yang seragam atau mendekati distribusi normal. Untuk mencapai ini, proses _scaling_ dan standarisasi sangat membantu dalam mengubah bentuk fitur data sehingga lebih mudah dipahami dan diolah oleh algoritma. Kita akan memanfaatkan fungsi standarisasi yang dimiliki oleh liblary sklearn.
+Algoritma _machine learning_ cenderung memberikan hasil yang lebih baik dan konvergen lebih cepat ketika data memiliki skala yang seragam atau mendekati distribusi normal. Untuk mencapai ini, proses _scaling_ dan standarisasi sangat membantu dalam mengubah bentuk fitur data sehingga lebih mudah dipahami dan diolah oleh algoritma. Pada proyek ini akan memanfaatkan fungsi standarisasi yang dimiliki oleh liblary sklearn.
 
 # Modeling
 Proyek ini menggunakan 3 algoritma Machine Learning:
@@ -189,7 +189,7 @@ _Random Forest_ dapat menghasilkan model yang cukup besar, terutama jika jumlah 
 Pada bagian Business Understanding ingin mengetahui dan memilih algoritma yang paling baik. Ketiga algoritma yang telah dipakai memiliki kelebihan dan kekurangannya masing-masing. Berdasarkan kelebihan dan kelemahan tiap model, pada proyek ini ditentukan bahwa model <trong>_Random Forest_</strong> sebagai model terbaik. Hal ini dikarenakan _Random Forest_ membangun banyak pohon keputusan secara parallel dan menggabungkan hasil prediksi. Kemampuan ini membantu dalam menangani keragaman dan kompleksitas data dengan lebih baik daripada model tunggal seperti KNN atau SVM. Selain itu _Random Forest_ dapat menangani _dataset_ dengan jumlah fitur yang besar dan mampu mengatasi fitur-fitur yang tidak teratur atau tidak relevan. Pada bagian Evaluation nantinya akan dikonfirmasi apakah benar model <trong>_Random Forest_</strong> merupakan yang terbaik daripada model <trong>KNN</strong> dan juga <trong>SVC</strong>
 
 # Evaluation
-Pada Proyek ini menggunakan model machine learning bertipe klasifikasi yang berarti Jika prediksi cocok dengan label kelas sebenarnya, performanya baik. Sedangkan jika tidak, performanya buruk. Secara teknis, perbedaan antara kelas sebenarnya dan kelas yang diprediksi disebut kesalahan klasifikasi. Maka, semua metrik mengukur seberapa kecil nilai kesalahan klasifikasi tersebut. Beberapa metrik yang akan kita gunakan adalah accuracy, precision, recall, f1_score.
+Pada Proyek ini menggunakan model machine learning bertipe klasifikasi yang berarti Jika prediksi cocok dengan label kelas sebenarnya, performanya baik. Sedangkan jika tidak, performanya buruk. Secara teknis, perbedaan antara kelas sebenarnya dan kelas yang diprediksi disebut kesalahan klasifikasi. Maka, semua metrik mengukur seberapa kecil nilai kesalahan klasifikasi tersebut. Beberapa metrik yang akan digunakan adalah accuracy, precision, recall, f1_score.
 <br>
 $$Accuracy = {TP + TN \over TP + TN + FP + FN}$$
 $$Precision = {TP \over TP + FP}$$
@@ -235,7 +235,7 @@ Dari tabel 1 bisa dilihat bahwa ketiga ketiga model mempunyai performa yang cuku
 
 
 ## Kesimpulan 
-Berdasarkan dari apa yang telah kita lakukan selama ini, kita dapat menjawab semua dari problem statement yang kita nyatakan sebelumnya. Pertama, pengaruh fitur pada _dataset_ dalam menentukan kelayakan konsumsi air terbilang cukup kuat. Hal ini dikarenakan bebrapa pasangan fitur memiliki nilai korelasi yang cukup kuat. Hal ini juga didukung oleh fakta bahwa ketiga model memiliki niali evaluasi yang relatif tinggi terhadap _dataset_ yang digunakan. Kedua, pada proyek ini telah menerapkan berbagai metode dalam menganalisa dan mengolah data agar dapat digunakan dengan baik oleh model. Mulai dari menangani _missing value_, membagi _dataset_ menjadi data latih dan data uji, menangani ketidakseimbangan data menggunakan metode _undersampling_, hingga melakukan standarisasi pada data. Ketiga, algoritma yang memiliki kinerja paling baik terhadap _dataset_ yang kita miliki adalah algoritma <trong>SVC</strong>. Hal ini dibuktikan <trong>SVC</strong> memiliki nilai evaluasi tinggi dan stabil diantara model lainnya.
+Berdasarkan dari apa yang telah dilakukan selama ini, dapat menjawab semua dari _problem statement_ yang telaj nyatakan sebelumnya. Pertama, pengaruh fitur pada _dataset_ dalam menentukan kelayakan konsumsi air terbilang cukup kuat. Hal ini dikarenakan bebrapa pasangan fitur memiliki nilai korelasi yang cukup kuat. Hal ini juga didukung oleh fakta bahwa ketiga model memiliki niali evaluasi yang relatif tinggi terhadap _dataset_ yang digunakan. Kedua, pada proyek ini telah menerapkan berbagai metode dalam menganalisa dan mengolah data agar dapat digunakan dengan baik oleh model. Mulai dari menangani _missing value_, membagi _dataset_ menjadi data latih dan data uji, menangani ketidakseimbangan data menggunakan metode _undersampling_, hingga melakukan standarisasi pada data. Ketiga, algoritma yang memiliki kinerja paling baik terhadap _dataset_ adalah algoritma <trong>SVC</strong>. Hal ini dibuktikan <trong>SVC</strong> memiliki nilai evaluasi tinggi dan stabil diantara model lainnya.
 <br>
 # Referensi
 [1] Nasir, Nidia & Kansal, Afreen & Alshaltone, Omar & Barneih, Feras & Sameer, Mustafa & Shanableh, Abdallah & Al-Shamma'a, Ahmed. (2022). Water quality classification using machine learning algorithms. 10.1016/j.jwpe.2022.102920
