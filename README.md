@@ -30,7 +30,7 @@ Berdasarkan latar belakang di atas, permasalahan yang didapatkan sebagai berikut
 ### Solution Steatment
 + Menggunakan hubungan korelasi antar fitur untuk mengetahui pengaruh setiap fitur dalam menentukan kelayakan konsumsi air. 
 + Menerapkan beberapa metode dalam melakukan pemrosesan data seperti menghapus _missing value_ , membagi _dataset_ menjadi data latih dan data pengujian, serta menerapkan _downsampling_ ketika data mengalami ketidakseimbangan
-+ Menggunakan lebih dari 1 model yang dapat menyelesaikan masalah klasifikasi. Algoritma yang dipakai adalah _K-Nearest Neighbour_, __Random Forest__, dan _Suport Vector Classification_
++ Menggunakan lebih dari 1 model yang dapat menyelesaikan masalah klasifikasi. Algoritma yang dipakai adalah _K-Nearest Neighbour_, _Random Forest_, dan _Suport Vector Classification_
 
 # Data Understanding
 _dataset_ yang digunakan dalam proyek ini merupakan data yang berisikan beberapa parameter yang digunakan dalam menentukan kualitas air. _dataset_ ini dapat diunduh di [Kaggle: Water Quality]([https://www.kaggle.com/_dataset_s/adityakadiwal/water-potability/data](https://www.kaggle.com/_dataset_s/mssmartypants/water-quality))
