@@ -67,35 +67,21 @@ Informasi _dataset_:
 
 ### Exploratory Data Analys
 #### Mengecek fitur pada _dataset_
-Sebelum memproses data dari _dataset_, perlu di cek kembali fitur-fitur yang terdapat pada _dataset_.
-![Screenshot 2024-02-26 191251](https://github.com/Padmanaba231/Predictive-Analytic-Update/assets/157343566/449e0d97-7c3f-4f79-8a37-d8ebd8349b7d)
-<br> 
-Gambar 2.1 Analisis fitur _dataset_
-<br>
-![Screenshot 2024-02-26 191745](https://github.com/Padmanaba231/Predictive-Analytic-Update/assets/157343566/c9053e29-bd60-4953-8e21-9e716a47bf62)
-<br>
-Gambar 2.2 Analisis fitur ammonia
-<br>
-<br>
-Bisa dilihat pada gambar 2.1 terdapat satu hal yang terasa janggal. Pada fitur ammonia memiliki tipe data obyek. Padahal setelah diperiksa, ternyata fitur ammonia memiliki data tipe numerik. Oleh karena itu, tipe data pada kolom fitur ammonia perlu diubah menjadi data tipe numerik menggunakan fungsi yang telah disediakan oleh pandas yaitu fungsi to_numeric.
+Sebelum memproses data dari _dataset_, perlu di cek kembali fitur-fitur yang terdapat pada _dataset_.Setelah diperiksa terdapat suatu kejanggalan pada data. Pada fitur ammonia memiliki tipe data obyek. Padahal setelah diperiksa, ternyata fitur ammonia memiliki data tipe numerik. Oleh karena itu, tipe data pada kolom fitur ammonia perlu diubah menjadi data tipe numerik menggunakan fungsi yang telah disediakan oleh pandas yaitu fungsi to_numeric.
 
 
 
 #### Missing value
-![missing_val](https://github.com/Padmanaba231/Predictive-Analytic-Update/assets/157343566/83762d39-9550-4bf4-b5e7-e24158494cac)
-<br>
-Gambar 2.3 Analisis _missing value_
-<br><br>
-perlu untuk mengecek jumlah _missing value_ yang dimiliki _dataset_. Dengan menggunakan fungsi isnull().sum() untuk mengetahui jumlah _missing value_ dan fitur yang memiliki _missing value_. Terdapat 3 _missing value_ pada _dataset_ yaitu pada fitur ammonia.
+perlu untuk mengecek jumlah _missing value_ yang dimiliki _dataset_. Dengan menggunakan fungsi isnull().sum() untuk mengetahui jumlah _missing value_ dan fitur yang memiliki _missing value_. Terdapat 3 _missing value_ pada _dataset_ yaitu pada fitur ammonia. Jumlah ini terbilang sedikit, jadi _missing value_ akan dihapuskan pada tahapan data preparation.
 
 
 #### Persebaran data
 ![Persebaran data](https://github.com/Padmanaba231/Predictive-Analytic-Update/assets/157343566/46d650ec-cf0f-42f3-9b41-89efab88f0ff)
 
 <br>
-Gambar 2.4
+Gambar 2 Persebaran data kelas
 <br><br>
-Selanjutnya persebaran pada _dataset_ perlu untuk di cek kembali. Pada gambar 2.4 dapat dilihat bahwa persebaran data terkumpul pada kelas 0 (air tidak layak konsumsi). Jika dibiarkan hal ini dapat menyebabkan bias terhadap model yang akan dibuat. Permasalahan ini nantinya akan diselesaikan pada bagian Data Preparation.
+Selanjutnya persebaran pada _dataset_ perlu untuk di cek kembali. Pada gambar 2 dapat dilihat bahwa persebaran data terkumpul pada kelas 0 (air tidak layak konsumsi). Jika dibiarkan hal ini dapat menyebabkan bias terhadap model yang akan dibuat. Permasalahan ini nantinya akan diselesaikan pada bagian Data Preparation.
 <br>
 
 ### Korelasi antar fitur
@@ -104,9 +90,9 @@ Menghitung korelasi antar fitur yang ada menggunakan bantuan metode heatmap corr
 <br>
 ![korelasi](https://github.com/Padmanaba231/Predictive-Analytic-Update/assets/157343566/024518f4-8b5b-4ed6-9929-1a8fa612af56)
 <br>
-Gambar 2.5
+Gambar 2 Korelasi antar fitur
 <br><br>
-Berdasarkan gambar 2.5 beberapa fitur mempunyai nilai korelasi yang kuat dengan fitur lainnya. Jika diamati, pasangan fitur yang memiliki nilai korelasi paling besar adalah antara fitur virus dan bakteri. Hal ini dapat diartikan bahwa air yang terindikasi memiliki kandungan virus di dalamnya cenderung juga memiliki kandungan bakteri di dalamnya.
+Berdasarkan gambar 2 beberapa fitur mempunyai nilai korelasi yang kuat dengan fitur lainnya. Jika diamati, pasangan fitur yang memiliki nilai korelasi paling besar adalah antara fitur virus dan bakteri. Hal ini dapat diartikan bahwa air yang terindikasi memiliki kandungan virus di dalamnya cenderung juga memiliki kandungan bakteri di dalamnya.
 
 # Data Preparation
 ### Menangani Missing Value
@@ -117,7 +103,7 @@ Seperti yang sudah dijelaskan sebelumnya, pada _dataset_ memiliki 3 _missing val
 
 ![RESAMPLING](https://github.com/Padmanaba231/Predictive-Analytic-Update/assets/157343566/f89460af-2109-4ecc-af09-680c474a7b74)
 <br>
-Gsmbar 3.1
+Gsmbar 3
 <br><br>
 Seperti yang telah diketahui sebelumnya, data mengalami ketidakseimbangan.Permasalahan ini akan diselesaikan dengan metode _undersampling_. Dengan cara menyeimbangkan _dataset_ dengan mengurangi jumlah sampel pelatihan yang berada di bawah kelas mayoritas. Walau akan kehilangan beberapa informasi jika menggunakan metode ini, data yang dimiliki tetap termasuk banyak. Jumlah data setelah menerapkan metodei ini sebesar 1824 data.
 
