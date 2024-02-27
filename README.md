@@ -81,11 +81,10 @@ perlu untuk mengecek jumlah _missing value_ yang dimiliki _dataset_. Dengan meng
 
 #### Persebaran data
 ![Persebaran data](https://github.com/Padmanaba231/Predictive-Analytic-Update/assets/157343566/46d650ec-cf0f-42f3-9b41-89efab88f0ff)
-
 <br>
 Gambar 2 Persebaran data kelas
 <br><br>
-Selanjutnya persebaran pada _dataset_ perlu untuk di cek kembali. Pada gambar 2 dapat dilihat bahwa persebaran data terkumpul pada kelas 0 (air tidak layak konsumsi). Jika dibiarkan hal ini dapat menyebabkan bias terhadap model yang akan dibuat. Hal ini akan membuat model cenderung lebih fokus terhadap kelas mayoritas(kelas 0) dan tidak memiliki informasi yang cukup untuk mengenali dengan baik kelas minoritas. Ini dapat mengakibatkan kinerja model yang buruk pada kelas yang kurang umum. Untuk menghindari hal ini, data perlu diseimbangkan. Data pada kedua kelas harus diubah menjadi seimbang untuk menghilangkan bias terhadap model. Terdapat dua metode yang terkenal dalam menangani masalah ini, yaitu _oversampling_ dan _undersampling_. Karena perbedaan jumlah kelas terbilang cukup besar, pada proyek ini akan menggunakan metode undersampling. Pada proyek ini tidak menggunakan metode _upsampling_ karena jika memakai _upsampling_ ditakutkan akan menambahkan bias pada data kelas 1 karena data yang dihasilkan dari _upsampling_ akan lebih banyak dari pada data asli. Selain itu, jika menggunakan _upsampling_ pada perbedaan jumlah data yang banyak, ditakutkan model akan mengalami _overfitting_. Sementara itu, metode _undersampling_ cocok digunakan pada _dataset_ dikarenakan jumlah data setelah menerapkan metode _undersampling_ masih terbilang cukup banyak. Jadi meskipun kita akan kehilangan beberapa informasi, informasi yang tersisa setelah metode _undersampling_ terbilang masih cukup dalam membangun model yang baik.
+Selanjutnya persebaran pada  perlu untuk di cek kembali. Pada gambar 2 dapat dilihat bahwa persebaran data terkumpul pada kelas 0 (air tidak layak konsumsi). Jika dibiarkan hal ini dapat menyebabkan bias terhadap model yang akan dibuat. Hal ini akan membuat model cenderung lebih fokus terhadap kelas mayoritas(kelas 0) dan tidak memiliki informasi yang cukup untuk mengenali dengan baik kelas minoritas. Ini dapat mengakibatkan kinerja model yang buruk pada kelas yang kurang umum. Untuk menghindari hal ini, data perlu diseimbangkan. Data pada kedua kelas harus diubah menjadi seimbang untuk menghilangkan bias terhadap model. Terdapat dua metode yang terkenal dalam menangani masalah ini, yaitu _oversampling_ dan _undersampling_. Karena perbedaan jumlah kelas terbilang cukup besar, pada proyek ini akan menggunakan metode undersampling. Pada proyek ini tidak menggunakan metode _upsampling_ karena jika memakai _upsampling_ ditakutkan akan menambahkan bias pada data kelas 1 karena data yang dihasilkan dari _upsampling_ akan lebih banyak dari pada data asli. Selain itu, jika menggunakan _upsampling_ pada perbedaan jumlah data yang banyak, ditakutkan model akan mengalami _overfitting_. Sementara itu, metode _undersampling_ cocok digunakan pada _dataset_ dikarenakan jumlah data setelah menerapkan metode _undersampling_ masih terbilang cukup banyak. Jadi meskipun kita akan kehilangan beberapa informasi, informasi yang tersisa setelah metode _undersampling_ terbilang masih cukup dalam membangun model yang baik.
 <br>
 
 ### Korelasi antar fitur
@@ -109,7 +108,7 @@ Seperti yang sudah dijelaskan sebelumnya, pada _dataset_ memiliki 3 _missing val
 <br>
 Gsmbar 3
 <br><br>
-Seperti yang telah diketahui sebelumnya, data mengalami ketidakseimbangan.Permasalahan ini akan diselesaikan dengan metode _undersampling_. Dengan cara menyeimbangkan _dataset_ dengan mengurangi jumlah sampel pelatihan yang berada di bawah kelas mayoritas. Walau akan kehilangan beberapa informasi jika menggunakan metode ini, data yang dimiliki tetap termasuk banyak. Jumlah data setelah menerapkan metodei ini sebesar 1824 data.
+Seperti yang telah diketahui sebelumnya, data mengalami ketidakseimbangan.Permasalahan ini akan diselesaikan dengan metode _undersampling_. Dengan cara menyeimbangkan _dataset_ dengan mengurangi jumlah sampel pelatihan yang berada di bawah kelas mayoritas. Walau akan kehilangan beberapa informasi jika menggunakan metode ini, data yang dimiliki tetap termasuk banyak. Jumlah data setelah menerapkan metodei ini sebesar 1824 data. Untuk mengetahui apakah metode ini benar-benar dapat membantu meningkatkan kualitas model, data akan dipisah menjadi 2, yaitu data yang menggunakan metode _undersampling_ dan data yang tidak menggunakan metode tersebut. Pengaruh metode ini baru dapat dianalisis setelah melakukan evaluasi model.
 
 ### Membagi _dataset_
 _Dataset_ akan dibagi_ menjadi data latih dan data uji. Data latih akan digunakan untuk membangun model, sedangkan data uji akan digunakan untuk menguji performa model. Dengan menggunakan metode train_test_split dari liblary sklearn untuk melakukan hal ini. Rasio dari pambagian _dataset_ sebesar 75% untuk data latih dan 25% untuk data uji. Data latih digunakan untuk melatih model sementara data uji digunakan untuk mengevaluasi model. Perlu diperhatikan bahwa pembagian _dataset_ harus dilakukan terlebih dahulu sebelum melakukan standarisasi. Hal ini dilakukan agar tidak terjadi kebocoran informasi pada data uji.
@@ -213,6 +212,16 @@ Keterangan:
 <br>
 ### Hasil Evaluasi Ketiga Model
 
+|           | KNN      | SVM      | Randomforest |
+|-----------|----------|----------|--------------|
+| accuracy  | 0.916958 | 0.942971 | 0.957479     |
+| precision | 0.828571 | 0.818182 | 0.909677     |
+| recall    | 0.273585 | 0.59434  | 0.665094     |
+| f1_score  | 0.411348 | 0.688525 | 0.768392     |
+<br>
+Tabel 1 Hasil Evaluasi Model Pada <strong>Normal Dataset</strong>
+<br>
+Jika dilihat pada tabel 1, dapat diperhatikan bahwa model memiliki nilai evaluasi yang rendah di beberapa matriks dan cenderung tidak stabil. Hal ini dikarenakan pada tabel 1 merupakan hasil evalusai model sebelum menerapkan metode _undersampling_ pada _dataset_. Model memiliki nilai evaluasi yang rendah karena masih memiliki nilai bias akibat ketidakseimbangan data. Bias inilah yang mengganggu proses pelatihan model yang menyebabkan model tidak dapat bekerja dengan baik
 
 |           | KNN      | SVM      | Randomforest |
 |-----------|----------|----------|--------------|
@@ -221,13 +230,13 @@ Keterangan:
 | recall    | 0.940678 | 0.915254 | 0.84322      |
 | f1_score  | 0.839319 | 0.909474 | 0.906606     |
 <br>
-Tabel 1 Hasil Evaluasi Model
+Tabel 2 Hasil Evaluasi Model Pada <strong>Downsampling Dataset</strong>
 <br>
-Dari tabel 1 bisa dilihat bahwa ketiga ketiga model mempunyai performa yang cukup baik. Pada model __KNN__ mempunyai nilai evaluasi paling rendah diantar yang lain. Sementara model <strong>_Random Forest_</strong> memiliki nilai akurasi yang paling tinggi. Walau demikian, tampaknya model <strong>_Random Forest_</strong> memiliki nilai _recall_ yang lebih rendah dari model lainnya. Sementara itu, tampaknya model __SVC__ memiliki nilai evaluasi yang paling stabil diantara model lainnya. Nilai evaluasinya berada di kisaran 90 pada ke-empat metriks. Jadi bisa disimpulkan bahwa model __SVC__ lah yang terbaik dan paling cocok berdasarkan permasalahan dan _Dataset_ yang digunakan pada proyek ini.
+Jika dibandingkan dengan tabel 1, pada tabel 2 nilai evaluasi dari model terbilang cukup baik dan stabil. Hal ini dikarenakan pada tabel 2 merupakan hasil evaluasi model sesudah menerapkan metode _undersampling_ . Model memiliki nilai evaluasi yang tinggi dan stabil karena telah mengeluarkan bias yang ada pada _dataset_. Dari tabel 2 juga bisa dilihat bahwa ketiga ketiga model mempunyai performa yang cukup baik. Pada model __KNN__ mempunyai nilai evaluasi paling rendah diantar yang lain. Sementara model <strong>_Random Forest_</strong> memiliki nilai akurasi yang paling tinggi. Walau demikian, tampaknya model <strong>_Random Forest_</strong> memiliki nilai _recall_ yang lebih rendah dari model lainnya. Sementara itu, tampaknya model __SVC__ memiliki nilai evaluasi yang paling stabil diantara model lainnya. Nilai evaluasinya berada di kisaran 90 pada ke-empat metriks. Jadi bisa disimpulkan bahwa model __SVC__ lah yang terbaik dan paling cocok berdasarkan permasalahan dan _Dataset_ yang digunakan pada proyek ini.
 
 
 ## Kesimpulan 
-Berdasarkan dari apa yang telah dilakukan selama ini, dapat menjawab semua dari _problem statement_ yang telaj nyatakan sebelumnya. Pertama, pengaruh fitur pada _dataset_ dalam menentukan kelayakan konsumsi air terbilang cukup kuat. Hal ini dikarenakan bebrapa pasangan fitur memiliki nilai korelasi yang cukup kuat. Hal ini juga didukung oleh fakta bahwa ketiga model memiliki niali evaluasi yang relatif tinggi terhadap _dataset_ yang digunakan. Kedua, pada proyek ini telah menerapkan berbagai metode dalam menganalisa dan mengolah data agar dapat digunakan dengan baik oleh model. Mulai dari menangani _missing value_, membagi _dataset_ menjadi data latih dan data uji, menangani ketidakseimbangan data menggunakan metode _undersampling_, hingga melakukan standarisasi pada data. Ketiga, algoritma yang memiliki kinerja paling baik terhadap _dataset_ adalah algoritma <trong>SVC</strong>. Hal ini dibuktikan <trong>SVC</strong> memiliki nilai evaluasi tinggi dan stabil diantara model lainnya.
+Berdasarkan dari apa yang telah dilakukan selama ini, dapat menjawab semua dari _problem statement_ yang telah dinyatakan sebelumnya. Pertama, pengaruh fitur pada _dataset_ dalam menentukan kelayakan konsumsi air terbilang cukup kuat. Hal ini dikarenakan bebrapa pasangan fitur memiliki nilai korelasi yang cukup kuat. Hal ini juga didukung oleh fakta bahwa ketiga model memiliki niali evaluasi yang relatif tinggi terhadap _dataset_ yang digunakan. Kedua, pada proyek ini telah menerapkan berbagai metode dalam menganalisa dan mengolah data agar dapat digunakan dengan baik oleh model. Mulai dari menangani _missing value_, membagi _dataset_ menjadi data latih dan data uji, menangani ketidakseimbangan data menggunakan metode _undersampling_, hingga melakukan standarisasi pada data. Metode-metode ini juga terbukti efektif dikarenakan setelah menerapkan metode tersebut, nilai evaluasi model menjadi lebih tinggi. Ketiga, algoritma yang memiliki kinerja paling baik terhadap _dataset_ adalah algoritma <trong>SVC</strong>. Hal ini dibuktikan <trong>SVC</strong> memiliki nilai evaluasi tinggi dan stabil diantara model lainnya.
 <br>
 # Referensi
 [1] Nasir, Nidia & Kansal, Afreen & Alshaltone, Omar & Barneih, Feras & Sameer, Mustafa & Shanableh, Abdallah & Al-Shamma'a, Ahmed. (2022). Water quality classification using machine learning algorithms. 10.1016/j.jwpe.2022.102920
