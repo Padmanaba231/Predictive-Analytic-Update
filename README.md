@@ -220,7 +220,7 @@ Keterangan:
 | f1_score  | 0.411348 | 0.688525 | 0.768392     |
 <br>
 Tabel 1 Hasil Evaluasi Model Pada <strong>Normal Dataset</strong>
-<br>
+<br><br>
 Jika dilihat pada tabel 1, dapat diperhatikan bahwa model memiliki nilai evaluasi yang rendah di beberapa matriks dan cenderung tidak stabil. Hal ini dikarenakan pada tabel 1 merupakan hasil evalusai model sebelum menerapkan metode _undersampling_ pada _dataset_. Model memiliki nilai evaluasi yang rendah karena masih memiliki nilai bias akibat ketidakseimbangan data. Bias inilah yang mengganggu proses pelatihan model yang menyebabkan model tidak dapat bekerja dengan baik
 <br>
 
@@ -232,7 +232,7 @@ Jika dilihat pada tabel 1, dapat diperhatikan bahwa model memiliki nilai evaluas
 | f1_score  | 0.839319 | 0.909474 | 0.906606     |
 <br>
 Tabel 2 Hasil Evaluasi Model Pada <strong>Downsampling Dataset</strong>
-<br>
+<br><br>
 Jika dibandingkan dengan tabel 1, pada tabel 2 nilai evaluasi dari model terbilang cukup baik dan stabil. Hal ini dikarenakan pada tabel 2 merupakan hasil evaluasi model sesudah menerapkan metode _undersampling_ . Model memiliki nilai evaluasi yang tinggi dan stabil karena telah mengeluarkan bias yang ada pada _dataset_. Dari tabel 2 juga bisa dilihat bahwa ketiga ketiga model mempunyai performa yang cukup baik. Pada model __KNN__ mempunyai nilai evaluasi paling rendah diantar yang lain. Sementara model <strong>_Random Forest_</strong> memiliki nilai akurasi yang paling tinggi. Walau demikian, tampaknya model <strong>_Random Forest_</strong> memiliki nilai _recall_ yang lebih rendah dari model lainnya. Sementara itu, tampaknya model __SVC__ memiliki nilai evaluasi yang paling stabil diantara model lainnya. Nilai evaluasinya berada di kisaran 90 pada ke-empat metriks. Jadi bisa disimpulkan bahwa model __SVC__ lah yang terbaik dan paling cocok berdasarkan permasalahan dan _Dataset_ yang digunakan pada proyek ini.
 
 
