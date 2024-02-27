@@ -222,6 +222,7 @@ Keterangan:
 Tabel 1 Hasil Evaluasi Model Pada <strong>Normal Dataset</strong>
 <br>
 Jika dilihat pada tabel 1, dapat diperhatikan bahwa model memiliki nilai evaluasi yang rendah di beberapa matriks dan cenderung tidak stabil. Hal ini dikarenakan pada tabel 1 merupakan hasil evalusai model sebelum menerapkan metode _undersampling_ pada _dataset_. Model memiliki nilai evaluasi yang rendah karena masih memiliki nilai bias akibat ketidakseimbangan data. Bias inilah yang mengganggu proses pelatihan model yang menyebabkan model tidak dapat bekerja dengan baik
+<br>
 
 |           | KNN      | SVM      | Randomforest |
 |-----------|----------|----------|--------------|
